@@ -40,10 +40,10 @@ if [[ "$1" == apache2* ]] || [ "$1" = 'php-fpm' ]; then
 			--file -
 			--directory /usr/src/wordpress
 			--owner "$user" --group "$group"
-			--no-overwrite-dir
 		)
 		targetTarArgs=(
 			--extract
+			--no-overwrite-dir
 			--file -
 		)
 		# loop over "pluggable" content in the source, and if it already exists in the destination, skip it
