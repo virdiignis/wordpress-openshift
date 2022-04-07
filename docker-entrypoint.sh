@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
+WP_SUBPATH=${WP_SUBPATH:-}
+mkdir -p $PWD/$WP_SUBPATH
+cd $PWD/$WP_SUBPATH
 
 if [[ "$1" == apache2* ]] || [ "$1" = 'php-fpm' ]; then
 	uid="$(id -u)"
@@ -37,7 +40,7 @@ if [[ "$1" == apache2* ]] || [ "$1" = 'php-fpm' ]; then
 			echo >&2 "WARNING: $PWD is not empty! (copying anyhow)"
 		fi
 
-		cp -R /usr/src/wordpress/* /var/www/html
+		cp -R /usr/src/wordpress/* $PWD
 		echo >&2 "Complete! WordPress has been successfully copied to $PWD"
 	fi
 
