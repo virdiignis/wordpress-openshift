@@ -1,4 +1,4 @@
-FROM wordpress:5.8-apache
+FROM wordpress:6.2-apache
 
 COPY docker-entrypoint.sh /usr/local/bin/
 COPY apache_conf/ports.conf /etc/apache2/ports.conf
